@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marcelo.melo\\source\\repos\\TraducaoEAPUAU\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj": {}
+    "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marcelo.melo\\source\\repos\\TraducaoEAPUAU\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj": {
+    "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcelo.melo\\source\\repos\\TraducaoEAPUAU\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
+        "projectUniqueName": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
         "projectName": "TraducaoEAPUAU",
-        "projectPath": "C:\\Users\\marcelo.melo\\source\\repos\\TraducaoEAPUAU\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
+        "projectPath": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
         "packagesPath": "C:\\Users\\marcelo.melo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcelo.melo\\source\\repos\\TraducaoEAPUAU\\TraducaoEAPUAU\\obj\\",
+        "outputPath": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -6,7 +6,7 @@ using TraducaoEAPUAU;
 
 //Abrir aquivo com todos os centros de custos]
 
-StreamReader rd = new StreamReader(@"C:\Users\marcelo.melo\source\repos\TraducaoEAPUAU\TraducaoEAPUAU\EAP.csv", Encoding.Default, true);
+StreamReader rd = new StreamReader(@"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\EAP.csv", Encoding.Default, true);
 
 //Lista totais
 List<UauInsumo> Insumos = new();
@@ -24,6 +24,7 @@ while ((linha = rd.ReadLine()) != null)
     {
         centros.Add(new CentroDeCusto
         {
+            Id = Guid.NewGuid(),
             Cod = line[2],
             Description = line[5],
         });
@@ -34,6 +35,7 @@ while ((linha = rd.ReadLine()) != null)
     {
         composicoes.Add(new UauComposicao
         {
+            Id = Guid.NewGuid(),
             CodCentro = line[2],
             CodComp = line[3],
             Description = line[5],
@@ -44,11 +46,12 @@ while ((linha = rd.ReadLine()) != null)
 
     Insumos.Add(new UauInsumo
     {
+        Id = Guid.NewGuid(),
         CodCentro = line[2],
         CodComp = line[3],
         CodInsumo = line[4],
         Description = line[5],
-    });
+    }); ;
 
 }
 

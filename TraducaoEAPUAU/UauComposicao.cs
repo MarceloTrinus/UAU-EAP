@@ -8,6 +8,7 @@ namespace TraducaoEAPUAU
 {
     public class UauComposicao
     {
+        public Guid Id { get; set; }
         public string CodCentro { get; set; }
 
         public string CodComp { get; set; }

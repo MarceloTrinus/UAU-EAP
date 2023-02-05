@@ -8,6 +8,8 @@ namespace TraducaoEAPUAU
 {
     public class CentroDeCusto
     {
+        public Guid Id { get; set; }
+
         public string Cod { get; set; }
         public string Description { get; set; }
 
