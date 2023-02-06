@@ -1,0 +1,40 @@
+ADM;10070 DESPESA;8;-1;-1;DESPESA ADMINISTRATIVA;
+ADM;10070 DESPESA;8.01;-1;-1;DESENVOLVIMENTO E GERENCIAMENTO;DESENVOLVIMENTO E GERENCIAMENTO de empreendimentos imobiliários, contemplando Serviços de Viabilidade Econômica e Financeira, e coordenaçao de ações ligadas a Legalização, Coordenação de Projetos de Arquitetura, Engenharia e Complementares, Gerenciamento e Fiscalização de Obras juntamente a interface com  construtora e prestadores de serviços
+ADM;10070 DESPESA;08.01.01;C00476;;DESENVOLVIMENTO;
+ADM;10070 DESPESA;08.01.01;C00476;I19841;DESENVOLVIMENTO;Taxa de remuneração ao incorporador e/ou serv+ pela idealização do produto estudo de massa, detalhamento de projetos preliminares assim como detalhamento do plano de negocio/viabilidade
+ADM;10070 DESPESA;08.01.02;C00477;;GERENCIAMENTO;
+ADM;10070 DESPESA;08.01.02;C00477;I19842;GERENCIAMENTO;Taxa de remuneração pelo serviço governança/gerenciamento do cumprimento de metricas apontadas em estudo de viabilidade alvo, assim como apontamento de soluções em pontos divergentes. Assim como a coordenação de todas materias envolvidas ao sucesso do empreendimento. Serv+.
+ADM;10070 DESPESA;8.02;-1;-1;DESPESAS ADMINISTRATIVAS;
+ADM;10070 DESPESA;08.02.01;C00480;;DESPESAS COM UNIDADES EM ESTOQUE;
+ADM;10070 DESPESA;08.02.01;C00480;I19845;DESPESAS COM UNIDADES EM ESTOQUE;Despesa com o condominio, IPTU, AGUA E ENERGIA de unidades não vendidas. (exceto manutenção - que será apontada 1) ou em garantia quando cabivel, 2) ou em comercialização)
+ADM;10070 DESPESA;08.02.02;C00482;;DESPESAS FINANCEIRAS;
+ADM;10070 DESPESA;08.02.02;C00482;I19847;DESPESAS FINANCEIRAS;Despesas com tarifas bancárias, averbção de contrato, financiamento, juros, multas.
+ADM;10070 DESPESA;08.02.03;C00483;;DESPESAS JURIDICAS;
+ADM;10070 DESPESA;08.02.03;C00483;I19848;DESPESAS JURIDICAS;Despesas correlacionadas ao cartório, a junta. 
+ADM;10070 DESPESA;08.02.04;C00484;;DESPESAS CONTABEIS;
+ADM;10070 DESPESA;08.02.04;C00484;I19849;DESPESAS CONTABEIS;Despesas pelos serviços prestados pela contabilidade  (Mapah e outras) serviços internos.
+ADM;10070 DESPESA;08.02.05;C00485;;DESPESAS COM AUDITORIA;
+ADM;10070 DESPESA;08.02.05;C00485;I19850;DESPESAS COM AUDITORIA;Despesas pelos serviços prestados pela auditoria interna e externas.
+ADM;10070 DESPESA;08.02.06;C00488;;SISTEMAS;
+ADM;10070 DESPESA;08.02.06;C00488;I19853;SISTEMAS;Todas as despesas relacionadas a tecnologia. 
+ADM;10070 DESPESA;08.02.07;C00491;;SERVICOS DE APOIO ADMINISTRATIVO;
+ADM;10070 DESPESA;08.02.07;C00491;I19856;SERVICOS DE APOIO ADMINISTRATIVO;Despesas com consultorias para incorporação, demais despesas administrativas. 
+ADM;10070 DESPESA;08.02.08;C00493;;TAXAS E CERTIDOES E ANUIDADES;
+ADM;10070 DESPESA;08.02.08;C00493;I19858;TAXAS E CERTIDOES E ANUIDADES;
+ADM;10070 DESPESA;08.02.09;C00585;;VIAGENS E ESTADIAS ATRELADO A ADMINISTRACAO;
+ADM;10070 DESPESA;08.02.09;C00585;I20318;VIAGENS E ESTADIAS ATRELADO A ADMINISTRACAO;Todas as despesas de viagens relacionas a administração.
+ADM;10070 DESPESA;8.03;-1;-1;OUTRAS DESPESAS ADMINISTRACAO DO EMPREENDIMENTO (SPE);
+ADM;10070 DESPESA;08.03.01;C00495;;SEDE DO EMPREENDIMENTO SPE (CONSTRUCAO);
+ADM;10070 DESPESA;08.03.01;C00495;I19860;SEDE DO EMPREENDIMENTO SPE (CONSTRUCAO);Todas as despesas de construção relacionadas a sede do empreendimento.
+ADM;10070 DESPESA;08.03.02;C00496;;SEDE DO EMPREENDIMENTO SPE (MANUTENCAO);
+ADM;10070 DESPESA;08.03.02;C00496;I19861;SEDE DO EMPREENDIMENTO SPE (MANUTENCAO);Todas as despesas de manutenção relacionadas a sede do empreendimento. (Caixinha de obra - valor de adiantamento).
+ADM;10070 DESPESA;8.04;-1;-1;GESTAO DE CARTEIRA ;
+ADM;10070 DESPESA;08.04.01;C14175;;REDE INTERCAMBIADORA;
+ADM;10070 DESPESA;08.04.01;C14175;I23210;INTERCAMBIADORA;Para multipropriedade
+ADM;10070 DESPESA;08.04.02;C00371;;TAXA DE ADMINISTRACAO;
+ADM;10070 DESPESA;08.04.02;C00371;I19720;TAXA DE ADMINISTRACAO;
+ADM;10070 DESPESA;08.04.03;C00587;;VIAGENS E ESTADIAS ATRELADOS A GESTAO DE CARTEIRA;
+ADM;10070 DESPESA;08.04.03;C00587;I20320;VIAGENS E ESTADIAS ATRELADOS A GESTAO DE CARTEIRA;Todas as despesas de viagens relacionas a gestão da carteira. 
+ADM;10050 DEVOLUCAO/ESTORNO;8.05;-1;-1;DEVOLUCAO E ESTORNO (CONCILIACAO) ;
+ADM;10050 DEVOLUCAO/ESTORNO;08.05.01;C00506;;DEVOLUCAO E ESTORNO (CONCILIACAO);
+ADM;10050 DEVOLUCAO/ESTORNO;08.05.01;C00506;I19865;DEVOLUCAO E ESTORNO (CONCILIACAO);Ex.: Repasse Aquapass

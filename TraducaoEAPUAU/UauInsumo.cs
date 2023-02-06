@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace TraducaoEAPUAU
+namespace EAPSONAR
 {
     public class UauInsumo
     {

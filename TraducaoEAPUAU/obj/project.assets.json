@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
-      "projectName": "TraducaoEAPUAU",
-      "projectPath": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\TraducaoEAPUAU.csproj",
+      "projectUniqueName": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\EAPSONAR.csproj",
+      "projectName": "EAPSONAR",
+      "projectPath": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\EAPSONAR.csproj",
       "packagesPath": "C:\\Users\\marcelo.melo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\marcelo.melo\\Documents\\GitRepository\\UAU-EAP\\TraducaoEAPUAU\\obj\\",
       "projectStyle": "PackageReference",

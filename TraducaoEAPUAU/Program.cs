@@ -1,61 +1,117 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using TraducaoEAPUAU;
+using System.Threading;
+using EAPSONAR;
 
+//Abrir arquivos com EAP / por centro de custo
+IDictionary<string, string> Readers = new Dictionary<string, string>()
+{
 
-//Abrir aquivo com todos os centros de custos]
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-ADM.csv", "DESPESAS ADMINISTRATIVAS"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-ALP.csv", "CUSTOS COM APROVACOES, LICENCIAMENTO, PROJETOS" },
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-APT.csv", "APORTE" },
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-CAQ.csv", "CUSTO COM AQUISICOES" },
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-CDR.csv", "CARTEIRA DE RECEBIVEIS"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-COM.csv", "DESPESAS COMERCIAIS"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-DIS.csv", "DISTRIBUICAO DE LUCRO"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-DPO.csv", "DESPESA POS OBRA"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-DPV.csv", "DESPESA COM POS VENDA"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-EMP.csv", "EMPRESTIMOS"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-MKT.csv", "DESPESAS COM MARKETING"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-ORBURB.csv", "OBRA-URBANISMO"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-ORBINC.csv", "OBRA-INCORPORACAO"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-FOLHA.csv", "FOLHA"},
+    { @"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\BaseEAP\EAP-HOLDING.csv", "HOLDING"},
+};
 
-StreamReader rd = new StreamReader(@"C:\Users\marcelo.melo\Documents\GitRepository\UAU-EAP\TraducaoEAPUAU\EAP.csv", Encoding.Default, true);
+Task[] tasks = new Task[Readers.Count];
 
-//Lista totais
+//Sincronizadores;
+var semaphoreCentro = new SemaphoreSlim(0, 1);
+var semaphoreServiços = new SemaphoreSlim(0, 1);
+var semaphoreInsumos = new SemaphoreSlim(0, 1);
+
+//Lista de Insumos, serviços e Centros de Custos
 List<UauInsumo> Insumos = new();
 List<UauComposicao> composicoes = new();
 List<CentroDeCusto> centros = new();
 
-string linha = null;
-string[] line = null;
-
+int count = 0;
 //Criar lista de tradução
-while ((linha = rd.ReadLine()) != null)
+foreach(KeyValuePair<string, string> key in Readers)
 {
-    line = linha.Split(';');
-    if (line[4] == "-1")
+    tasks[count] = Task.Run(() =>
     {
-        centros.Add(new CentroDeCusto
+        string linha;
+        string[] line;
+
+        StreamReader rd = new StreamReader(key.Key, Encoding.Default, true);
+
+        while ((linha = rd.ReadLine()) != null)
         {
-            Id = Guid.NewGuid(),
-            Cod = line[2],
-            Description = line[5],
-        });
+            line = linha.Split(';');
+            if (line[3] == "-1")
+            {
+                semaphoreCentro.Wait();
 
-        continue;
-    }
-    else if (line[4] == "")
-    {
-        composicoes.Add(new UauComposicao
-        {
-            Id = Guid.NewGuid(),
-            CodCentro = line[2],
-            CodComp = line[3],
-            Description = line[5],
-        });
+                Console.WriteLine($"{key.Value} ---> Colocando Centro de Custo");
 
-        continue;
-    }
+                centros.Add(new CentroDeCusto
+                {
+                    Id = Guid.NewGuid(),
+                    Cod = line[2],
+                    Description = line[5],
+                });
 
-    Insumos.Add(new UauInsumo
-    {
-        Id = Guid.NewGuid(),
-        CodCentro = line[2],
-        CodComp = line[3],
-        CodInsumo = line[4],
-        Description = line[5],
-    }); ;
+                semaphoreCentro.Release();
 
+                continue;
+            }
+            else if (line[4] == "")
+            {
+                semaphoreServiços.Wait();
+
+                composicoes.Add(new UauComposicao
+                {
+                    Id = Guid.NewGuid(),
+                    CodCentro = line[2],
+                    CodComp = line[3],
+                    Description = line[5],
+                });
+
+                semaphoreServiços.Release();
+
+                continue;
+            }
+
+            semaphoreInsumos.Wait();
+
+            Insumos.Add(new UauInsumo
+            {
+                Id = Guid.NewGuid(),
+                CodCentro = line[2],
+                CodComp = line[3],
+                CodInsumo = line[4],
+                Description = line[5],
+            });
+
+            semaphoreInsumos.Release();
+        }
+
+    });
+
+    count++;
 }
 
+Thread.Sleep(500);
 
+semaphoreCentro.Release();
+semaphoreServiços.Release();
+semaphoreInsumos.Release();
+
+Task.WaitAll(tasks);
+
+/*
 
 //Adiciona Insumos as composições 
 if (composicoes.Count > 0)
@@ -66,9 +122,9 @@ if (composicoes.Count > 0)
         List<UauInsumo> insertInsumo = new();
         Insumos.ForEach(insumo =>
         {
-            if(insumo.CodComp == item.CodComp)
+            if (insumo.CodComp == item.CodComp)
             {
-                insertInsumo.Add(insumo);   
+                insertInsumo.Add(insumo);
             }
         });
 
@@ -114,5 +170,6 @@ string jsonString =
 
 
 UauInsumo translator = new UauInsumo();
+*/
 
-Console.WriteLine("Hello, SONAR!!!!!!");
+Console.WriteLine("Produzindo EAP SONAR !!!!!!");
